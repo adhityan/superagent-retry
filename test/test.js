@@ -2,7 +2,8 @@ var express     = require('express')
   , agent       = require('superagent')
   , should      = require('should')
   , assert      = require('assert')
-  , http        = require('http');
+  , http        = require('http')
+  , bodyParser  = require('body-parser');
 
 
 http.globalAgent.maxSockets = 2000;
@@ -22,7 +23,7 @@ describe('superagent-retry', function () {
     before(function (done) {
       app.get('/', function (req, res, next) {
         requests++;
-        if (requests < 4) res.send(503);
+        if (requests < 4) res.sendStatus(503);
         else res.send('hello!');
       });
 
@@ -61,7 +62,7 @@ describe('superagent-retry', function () {
     before(function (done) {
       app.get('/', function (req, res, next) {
         requests++;
-        if (requests < 4) res.send(500);
+        if (requests < 4) res.sendStatus(500);
         else res.send('hello!');
       });
 
@@ -152,7 +153,7 @@ describe('superagent-retry', function () {
       var url = 'http://localhost:' + port + '/data';
       var requests = 0;
 
-      app.post('/data', express.bodyParser(), function(req, res){
+      app.post('/data', bodyParser.json(), function(req, res){
         if (++requests < 3) return;
         res.send({ body: req.body, headers: req.headers });
       });
