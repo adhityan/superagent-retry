@@ -82,7 +82,7 @@ describe('superagent-retry', function () {
           .get('http://localhost:' + port)
           .retry(5)
           .end(function (err, res) {
-            console.log('requests', requests)
+            console.log('requests', requests);
             res.text.should.eql('hello!');
             requests.should.eql(4);
             done(err);
@@ -147,7 +147,7 @@ describe('superagent-retry', function () {
           assert('application/json' == res.body['accept']);
           done();
         });
-    })
+    });
 
     it('should re-send data and headers correctly', function(done){
       var url = 'http://localhost:' + port + '/data';
@@ -169,7 +169,7 @@ describe('superagent-retry', function () {
           assert('application/json' == res.body.headers['content-type']);
           done();
         });
-    })
+    });
 
     it('should retry on server resets', function (done) {
       var requests = 0;
@@ -202,7 +202,7 @@ describe('superagent-retry', function () {
       var request = agent.get(url);
       var allowedRetries = 10;
       var allowedTries = allowedRetries + 1;
-      var triesCount = 0
+      var triesCount = 0;
 
       var oldEnd = request.end;
       request.end = function(fn) {
@@ -239,4 +239,4 @@ describe('superagent-retry', function () {
         })
     });
   });
-})
+});
