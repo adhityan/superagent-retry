@@ -11,7 +11,9 @@
     "type": "git",
     "url": "git://github.com/segmentio/superagent-retry.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash.clonedeep": "4.3.2"
+  },
   "peerDependencies": {
     "superagent": "2.0.0"
   },
