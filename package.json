@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "lodash.clonedeep": "4.4.1",
-    "emitter-component": "1.1.1"
+    "component-emitter": "1.2.1"
   },
   "peerDependencies": {
     "superagent": ">2.0.0"
