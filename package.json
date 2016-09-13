@@ -12,7 +12,8 @@
     "url": "git://github.com/segmentio/superagent-retry.git"
   },
   "dependencies": {
-    "lodash.clonedeep": "4.4.1"
+    "lodash.clonedeep": "4.4.1",
+    "emitter-component": "1.1.1"
   },
   "peerDependencies": {
     "superagent": ">2.0.0"
