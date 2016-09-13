@@ -13,7 +13,7 @@ require('superagent-retry')(superagent);
 
 superagent
   .get('https://segment.io')
-  .retry(2) // retry twice before responding
+  .retry(2, 1000) // retry twice before responding and wait 1 second between retires
   .end(onresponse);
 
 
